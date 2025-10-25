@@ -39,15 +39,6 @@ blueprint:
             - domain:
                 - binary_sensor
           multiple: false
-    enabled_sensor:
-      name: ⏼ Enabled Sensor
-      description: Select a boolean input that enables or disables this Alarm
-      selector:
-        entity:
-          filter:
-            - domain:
-                - binary_sensor
-          multiple: false
     alarm_script:
       name: 📄 Script to trigger
       description: Light Alarm Script
@@ -201,9 +192,6 @@ trigger:
 condition:
   - condition: state
     entity_id: !input workday_sensor
-    state: "on"
-  - condition: state
-    entity_id: !input enabled_sensor
     state: "on"
 action:
   - choose:
